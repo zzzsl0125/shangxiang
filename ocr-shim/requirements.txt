@@ -1,0 +1,5 @@
+ddddocr==1.6.1
+fastapi==0.162.0
+uvicorn[standard]==0.54.0
+python-multipart==0.0.33
+pillow==13.0.0

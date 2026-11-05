@@ -1,0 +1,8 @@
+.venv/
+.tmp/
+__pycache__/
+*.pyc
+*.log
+尚香书苑_cookie.json
+ocr-shim/.env
+.ruff_cache/

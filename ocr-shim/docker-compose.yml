@@ -1,0 +1,19 @@
+services:
+  ocr:
+    build: .
+    image: sxsy-ocr:latest
+    container_name: sxsy-ocr
+    restart: unless-stopped
+    ports:
+      # 0.0.0.0 makes it reachable from GitHub Actions.
+      # Put it behind HTTPS (Caddy/Nginx/Cloudflare Tunnel) if you can.
+      - "0.0.0.0:8000:8000"
+    environment:
+      OCR_TOKEN: ${OCR_TOKEN:-}
+      OCR_BETA: ${OCR_BETA:-0}
+      OCR_UPPERCASE: ${OCR_UPPERCASE:-1}
+      OCR_MAX_SIDE: ${OCR_MAX_SIDE:-0}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 1g
